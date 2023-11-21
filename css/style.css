@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Rubik&display=swap');
+
+
+.gc_booking_widget div input {
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 18px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gc_booking_widget .gc_arrival_date,
+.gc_booking_widget .gc_departure_date,
+.gc_booking_widget .gc_guests  {
+    position: relative;
+}
+
+.gc_booking_widget .gc_arrival_date input,
+.gc_booking_widget .gc_departure_date input,
+.gc_booking_widget .gc_guests input {
+    padding-left: 35px;
+}
+
+.gc_booking_widget .gc_arrival_date:after,
+.gc_booking_widget .gc_departure_date:after,
+.gc_booking_widget .gc_guests:after {
+    content: '';
+    display: block;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 10px;
+    top: 13px;
+} 
+
+.gc_booking_widget .gc_arrival_date:after,
+.gc_booking_widget .gc_departure_date:after {
+    background-image: url(/wp-content/plugins/guesty-calendar-main/images/calendar.png);
+}
+
+.gc_booking_widget .gc_guests:after {
+    background-image: url(/wp-content/plugins/guesty-calendar-main/images/avatar.png);
+}
+
+.gc_booking_widget div:not(:last-child) input {
+    margin-bottom: 1em;
+}
+
+
+.gc_booking_widget .gc_book_now button,
+.gl_booking_button a {
+    border: none;
+    padding: 20px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    background-color: #E19159;
+    color: white!important;
+}
+
+.gc_booking_widget .gc_book_now button:hover,
+.gl_booking_button a:hover {
+    opacity: 0.8;
+}
+
+.error-notice {
+    background: #ed7777;
+    display: block;
+    padding: 10px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.guesty-main-wrapper {
+    /* max-width: 1440px; */
+    width: 90%;
+    position: relative;
+    margin: 60px auto;
+}
+
+.guesty-main-wrapper .guesty-listings-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-gap: 30px;
+}
+
+.guesty-listing-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.guesty-listing-items .guesty-listing-item {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px, rgba(0, 0, 0, 0.12) 0px 1px 5px;
+    border-radius: 10px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 230px;
+    max-height: 230px;
+    display: block;
+    object-fit: cover;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details {
+    padding: 15px;
+    position: relative;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details h3.guesty-listing-nickname {
+    margin: 0;
+    line-height: 1.6em;
+    font-size: 21px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details span.guesty-listing-address {
+    font-size: 12px;
+    letter-spacing: .2px;
+    font-family: 'Nunito',sans-serif;
+    color: #77838D;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-excerpt {
+    font-size: 14px;
+    letter-spacing: .2px;
+    font-family: 'Nunito',sans-serif;
+    color: #77838D;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details ul.guesty-listing-room-details {
+    display: flex;
+    padding-left: 0;
+    position: absolute;
+    bottom: 20px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details ul.guesty-listing-room-details li,
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-price span.gl-price-small-text {
+    list-style: none;
+    font-size: 11px;
+    letter-spacing: .2px;
+    font-family: 'Nunito',sans-serif;
+    color: #77838D;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-price {
+    font-size: 14px;
+    letter-spacing: .2px;
+    font-family: 'Nunito',sans-serif;
+    color: #77838D;
+    min-width: 150px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-price span.gl-price {
+    color: #10275B;
+    font-size: 1.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: normal;
+    font-weight: bold;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-price .book {
+    display: block;
+    margin-top: 10px;
+}
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-price .book a.gl-booking-button {
+    background: rgb(106, 193, 255);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    line-height: 2em;
+    display: inline-block;
+    padding: 5px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details span.guesty-listing-address i {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-room-details i {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-room-details li {
+    display: flex;
+    align-items: center;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-room-details li:not(:first-child) {
+    border-left: 1px solid #77838D;
+    padding-left: 15px;
+    margin-left: 15px;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-details ul.guesty-listing-room-details {
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.guesty-main-wrapper .facetwp-map-filtering{
+    display: none;
+}
+
+
+.guesty-main-wrapper .guesty-single-listing-container {
+    max-width: 80%;
+    margin: auto;
+}
+
+.guesty-single-listing-container .guesty-single-listing-hero .guesty-listing-images {
+    margin-bottom: 0!important;
+}
+
+.guesty-single-listing-container .guesty-single-listing-hero .guesty-listing-images .slick-dots {
+    bottom: unset;
+}
+
+.guesty-single-listing-container .guesty-single-listing-hero .guesty-listing-image img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+
+.guesty-single-listing-hero {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 70% 30%;
+}
+
+.guesty-listing-featured-images {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.guesty-listing-featured-images img:first-child {
+    border-top-right-radius: 60px;
+}
+
+.guesty-listing-featured-images img:last-child {
+    border-bottom-right-radius: 60px;
+}
+
+.guesty-listing-featured-images img {
+    width: 100%;
+    flex-basis: 33%;
+    object-fit: cover;
+    display: block;
+    max-height: 180px;
+}
+
+.guesty-single-listing-container .guesty-single-listing-content {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    padding: 100px 0 60px;
+    grid-gap: 60px;
+}
+
+.guesty-single-listing-container .guesty-single-listing-content .guesty-single-listing-right-area .gc_booking_widget {
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0px 3px 14px #00000042;
+    position: sticky;
+    top: 60px;
+}
+
+
+.guesty-single-listing-container ul.guesty-listing-room-details {
+    display: flex;
+    gap: 50px;
+    padding-left: 0!important;
+}
+
+.guesty-single-listing-container ul.guesty-listing-room-details li {
+    list-style: none;
+    display: flex;
+    color: #77838D;
+    font-size: 16px;
+}
+
+.guesty-single-listing-container ul.guesty-listing-room-details li i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.guesty-single-listing-container ul.guesty-listing-room-details li span {
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.guesty-single-listing-container ul.guesty-listing-room-details li p {
+    margin: 0;
+    line-height: 1.4em;
+    font-weight: 500;
+}
+
+.guesty-single-listing-container .guesty-single-listing-content .guesty-listing-amenities {
+    columns: 2;
+}
+
+.guesty-single-listing-container .guesty-single-listing-content .guesty-single-listing-title {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Rubik', sans-serif;
+}
+
+.mobile-only {
+    display: none;
+}
+
+
+.guesty-listing-items .guesty-listing-item .guesty-listing-image img {
+    display: none!important;
+}
+
+.facetwp-facet {
+    position: sticky;
+    top: 150px;
+}
+
+.guesty-error {
+    color: black;
+    border: 2px solid red;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+    background: #ffd1d1;
+}
+
+@media all and (max-width: 980px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .guesty-listing-items .guesty-listing-item .guesty-listing-image img {
+        display: block!important;
+    }
+    
+    .guesty-listing-items .guesty-listing-item .guesty-listing-image {
+        background-image: unset!important;
+    }
+
+    .mobile-book-button {
+        margin-top: 15px;
+    }
+    .mobile-book-button a {
+        width: 100%;
+        display: block;
+        text-decoration: none;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .guesty-main-wrapper .guesty-listings-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .guesty-main-wrapper .guesty-listings-container .guesty-listing-items,
+    .guesty-main-wrapper .guesty-listings-container .map {
+        width: 100%;
+    }
+
+    .guesty-listing-items .guesty-listing-item,
+    .guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-meta,
+    .guesty-single-listing-container .guesty-single-listing-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .guesty-single-listing-container ul.guesty-listing-room-details {
+        columns: 2;
+        display: block;
+        margin: 30px 0px 15px;
+    }
+
+    .guesty-single-listing-container ul.guesty-listing-room-details li {
+        margin-bottom: 10px;
+    }
+
+    .guesty-main-wrapper .guesty-single-listing-container {
+        max-width: 100%;
+    }
+
+    .guesty-listing-items .guesty-listing-item .guesty-listing-details ul.guesty-listing-room-details {
+        position: relative;
+        margin-top: 30px;
+    }
+
+    .guesty-main-wrapper .guesty-listings-container .map #facetwp-map {
+        height: 300px!important;
+    }
+
+    .guesty-listing-items .guesty-listing-item .guesty-listing-details .guesty-listing-price .book a {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .guesty-single-listing-container .guesty-single-listing-content .guesty-listing-amenities {
+        columns: 1;
+    }
+
+    .guesty-single-listing-container .guesty-single-listing-content .guesty-single-listing-title {
+        font-size: 24px;
+    }
+
+    .guesty-listing-featured-images {
+        display: none;
+    }
+
+    .guesty-single-listing-hero {
+        display: block;
+    }
+
+    .guesty-single-listing-container .guesty-single-listing-hero .guesty-listing-image img {
+        border-radius: 0;
+    }
+
+    .guesty-single-listing-container .guesty-single-listing-hero .guesty-listing-images .slick-dots {
+        display: none!important;
+    }
+
+    .guesty-single-listing-container .guesty-single-listing-content {
+        padding-top: 20px;
+    }
+
+    .guesty-single-listing-container .guesty-single-listing-content .guesty-single-listing-right-area .gc_booking_widget {
+        padding: 25px;
+    }
+
+    .guesty-single-listing-container .guesty-single-listing-content .guesty-single-listing-right-area .gc_booking_widget .gc_book_now button {
+        font-size: 16px;
+    }
+
+    .guesty-listing-items .guesty-listing-item .guesty-listing-image img {
+        max-height: 100%;
+    }
+}

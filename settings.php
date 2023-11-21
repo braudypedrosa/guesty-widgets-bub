@@ -1,0 +1,128 @@
+<?php ob_start();
+
+include_once(GUESTY_DIR.'functions.php');
+
+$token_expiry = get_option('_guesty_widgets_bearer_token_expiry_date', true);
+$today = date("Y-m-d H:i:s");
+
+$client_id_option = get_option('_guesty_widgets_client_id');
+$client_secret_option = get_option('_guesty_widgets_client_secret');
+$booking_url_option = get_option('_guesty_widgets_booking_url');
+$bearer_token = get_option('_guesty_widgets_bearer_token');
+$token_expiry = get_option('_guesty_widgets_bearer_token_expiry_date');
+
+$err = "";
+
+if(isset($_POST['save_settings'])){
+    
+    $client_id = isset($_POST['client_id']) ? $_POST['client_id'] : $client_id_option;
+    $client_secret = isset($_POST['client_secret']) ? $_POST['client_secret'] : $client_secret_option;
+    $booking_url = isset($_POST['booking_url']) ? $_POST['booking_url'] : $booking_url_option;
+
+    update_option('_guesty_widgets_booking_url', $booking_url);
+    _guesty_initialize($client_id, $client_secret);
+        
+
+    wp_redirect(admin_url("admin.php?page=widgets_widgets&status=settings_saved"));
+    exit();
+}
+
+
+if(isset($_POST['sync_listings'])){
+    _guesty_widgets_get_all_listings();
+}
+
+?>
+
+
+<style>
+    .guesty-form-input {
+        margin-bottom:20px;
+    }
+    .guesty-form-input.group {
+        display: flex;
+        gap: 20px;
+    }
+    .guesty-form-input label,
+    .guesty-form-input input {
+        display:block;
+        max-width:500px;
+        width:100%;
+    }
+    .guesty-form-input input[type=submit]{
+        max-width:200px;
+    }
+    .guesty-refresh_listings {
+        padding: 3px 25px !important;
+        font-size: 19px!important;
+    }
+    .guesty-settings-content-1 {
+        padding-bottom:25px;
+        border-bottom:1px solid #d0d0d0;
+    }
+    .guesty-settings-content-2,
+    .guesty-settings-content-3{
+        padding-top:25px;
+        padding-bottom:25px;
+        border-bottom:1px solid #d0d0d0;
+    }
+</style>
+<div class="wrap">
+    <h2>Guesty Settings</h2>
+    <?php if(isset($_GET['status']) && $_GET['status'] == "settings_saved"): ?>
+        <div class="notice notice-success is-dismissible">
+            <p>You have successfully connected to Guesty API.</p>
+        </div>
+    <?php elseif(isset($_GET['status']) && $_GET['status'] == "interval_saved"): ?>
+        <div class="notice notice-success is-dismissible">
+            <p>You have successfully saved the time interval!</p>
+        </div>
+    <?php endif;?>
+
+    <?php echo !empty($err) ? $err : ""; ?>
+
+    <div class="guesty-settings-content guesty-settings-content-1">
+        <h3>API Settings</h3>
+        <form method="POST">
+            <div class="guesty-form-input">
+                <label>API Client ID</label>
+                <input type="text" name="client_id"  value="<?php echo isset($_POST['client_id'])?$_POST['client_id']:$client_id_option;;?>"/>
+            </div>
+            <div class="guesty-form-input">
+                <label>API Client Secret</label>
+                <input type="password" name="client_secret" value="<?php echo isset($_POST['client_secret'])?$_POST['client_secret']:$client_secret_option;;?>"/>
+            </div>
+            <div class="guesty-form-input">
+                <label>Guesty Booking URL</label>
+                <input type="text" required name="booking_url" value="<?php echo isset($_POST['booking_url'])?$_POST['booking_url']:$booking_url_option;?>"/>
+                <span style="line-height: 2em;">Ex: https://sitename.guestybookings.com (Note: This might be different if you are using a custom domain)</span>
+            </div>
+            <div class="guesty-form-input">
+                <input type="text" disabled name="bearer_token" value=<?php echo $bearer_token; ?>><br>
+                <span>Token Expiry: <?php echo $token_expiry; ?></span><br><br>
+
+                <i>Note: If you're getting an API error. Please try saving the settings again.</i>
+            </div>
+            <div class="guesty-form-input group">
+                <input type="submit" name="save_settings" class="button-primary" value="Save Settings"/>
+                <input type="submit" name="sync_listings" class="button-primary" value="Sync Listings"/>    
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="shortcodes-wrap">
+    <h3>Available Shortcodes:</h3>
+    <p>[display_calendar]</p>
+
+    <p><strong>Example usage:</strong></p>
+    <p>[display_calendar listingID="xxxxxxxxxxxxxx" buttonText="Book Now"]</p>
+
+    <h4>Parameters:</h4>
+    <ul>
+        <li>listingID (required)</li>
+        <li>buttonText (optional - default: "Book Now")</li>
+        <li>buttonColor (optional - default: "#E19159")</li>
+        <li>textColor (optional - default: white)</li>
+    </ul>
+</div>
